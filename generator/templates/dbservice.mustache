@@ -1,0 +1,41 @@
+package com.gossamercms.{{project}}.data;
+
+import com.gossamercms.{{project}}.dtos.AppointmentDto;
+import com.gossamercms.{{project}}.models.Appointment;
+import com.gossamercms.mvc.annotations.ModuleDbService;
+import com.gossamercms.mvc.data.BaseDbService;
+import com.gossamercms.mvc.data.DataSourceManager;
+import com.gossamercms.mvc.data.ListResultset;
+
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+
+@ModuleDbService
+public class {{name}}sDbService extends BaseDbService<{{name}}, {{name}}Dto> {
+
+    public {{name}}DbService(DataSourceManager ds) {
+        super({{name}}.class, {{name}}Dto.class, ds);
+    }
+
+    @Override
+    protected {{name}} mapToEntity({{name}}Dto dto) {
+        return dto.toEntity();
+    }
+
+    @Override
+    protected {{name}}Dto mapToDto({{name}} entity) {
+        return entity.toDto();
+    }
+
+    @Override
+    protected {{name}}Dto removeExcludedFields({{name}}Dto dto) {
+        return dto;
+    }
+
+    @Override
+    protected void throw404(String id) {
+        throw new NotFoundException("{{name}} not found: " + id);
+    }
+}

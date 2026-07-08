@@ -1,0 +1,24 @@
+package com.gossamercms.{{project}}.dtos;
+
+import com.gossamercms.{projects.models.Encounter;
+import com.gossamercms.mvc.data.DtoWithId;
+import lombok.Builder;
+import lombok.Data;
+
+import java.util.UUID;
+
+@Data
+@Builder
+public class {{name}}Dto implements DtoWithId{
+{{#fields}}
+    private {{javaType}} {{name}};
+{{/fields}}
+
+    public {{name}} toEntity() {
+        return {{name}}.builder()
+{{#fields}}
+            .{{name}}({{name}})
+{{/fields}}
+            .build();
+    }
+}

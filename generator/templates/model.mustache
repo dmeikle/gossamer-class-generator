@@ -1,0 +1,47 @@
+package com.gossamercms.{{project}}.models;
+
+import com.gossamercms.{{project}}.dtos.EncounterDto;
+import com.gossamercms.mvc.models.BaseModel;
+import com.gossamercms.mvc.models.ModelMeta;
+import lombok.Builder;
+import lombok.Data;
+
+import java.util.UUID;
+
+
+@Data
+@Builder
+public class {{name}} implements BaseModel{
+{{#fields}}
+    private {{javaType}} {{name}};
+{{/fields}}
+
+    public {{name}}Dto toDto() {
+        return {{name}}Dto.builder()
+{{#fields}}
+            .{{name}}({{name}})
+{{/fields}}
+            .build();
+    }
+
+
+public static final ModelMeta META = ModelMeta.builderWithId("{{table}}")
+{{#fields}}
+    .column("{{name}}", {{javaClass}}.class{{#length}}, {{length}}{{/length}})
+{{/fields}}
+    .defaultSort("id desc")
+    .build();
+
+
+
+    @Override
+    public ModelMeta meta() {
+        return META;
+    }
+
+    @Override
+    public ModelMeta metaOf() {
+        return BaseModel.super.metaOf();
+    }
+
+}

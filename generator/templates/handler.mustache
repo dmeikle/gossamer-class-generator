@@ -1,0 +1,15 @@
+package com.gossamercms.{{project}}.handlers;
+
+import com.gossamercms.{{project}}.data.AppointmentsDbService;
+import com.gossamercms.{{project}}.dtos.AppointmentDto;
+import com.gossamercms.{{project}}.models.Appointment;
+import com.gossamercms.mvc.annotations.ModuleHandler;
+import com.gossamercms.mvc.handlers.BaseHandler;
+
+@ModuleHandler
+public class {{name}}sHandler extends BaseHandler<{{name}}, {{name}}Dto> {
+
+    public {{name}}Handler({{name}}DbService db) {
+        super(db);
+    }
+}

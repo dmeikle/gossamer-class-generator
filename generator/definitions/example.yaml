@@ -1,0 +1,19 @@
+name: PatientProvider
+table: patient_providers
+project: gossamer-clinic
+fields:
+  - name: patientId
+    type: UUID
+  - name: providerId
+    type: UUID
+  - name: clinicId
+    type: UUID
+  - name: relationship
+    type: String
+    length: 255
+  - name: isActive
+    type: Boolean
+  - name: startDate
+    type: Date
+  - name: endDate
+    type: Date

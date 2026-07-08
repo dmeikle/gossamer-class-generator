@@ -1,0 +1,8 @@
+CREATE TABLE {{table}} (
+    "id" UUID PRIMARY KEY,
+{{#fields}}
+    "{{name}}" {{sqlType}}{{#length}}({{length}}){{/length}},
+{{/fields}}
+    "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    "updatedAt" TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
