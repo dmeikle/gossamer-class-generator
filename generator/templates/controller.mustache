@@ -1,6 +1,10 @@
 package com.gossamercms.{{project}}.adapters.inbound;
 
-import com.gossamercms.{{project}}.handlers.AppointmentsHandler;
+
+import com.gossamercms.{{project}}.dtos.{{name}}Dto;
+import com.gossamercms.{{project}}.handlers.{{name}}sHandler;
+import com.gossamercms.{{project}}.models.{{name}};
+import com.gossamercms.{{project}}.handlers.{{name}}sHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/{{table}}")
 public class {{name}}sController extends BaseController<{{name}}, {{name}}Dto> {
 
-    public {{name}}sController({{name}}Handler handler) {
+    public {{name}}sController({{name}}sHandler handler) {
         super(handler);
     }
 }

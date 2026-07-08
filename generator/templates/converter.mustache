@@ -1,8 +1,9 @@
 package com.gossamercms.{{project}}.converters;
 
-import com.gossamercms.{{project}}.data.PatientAddressesDbService;
-import com.gossamercms.{{project}}.dtos.PatientAddressDto;
+import com.gossamercms.{{project}}.data.{{name}}sDbService;
+import com.gossamercms.{{project}}.dtos.{{name}}Dto;
 import com.gossamercms.mvc.annotations.ModuleConverter;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.Converter;
 
 import java.util.UUID;
@@ -10,7 +11,7 @@ import java.util.UUID;
 
 @ModuleConverter
 public class {{name}}Converter
-        extends BaseStringToDtoConverter<{{name}}Dto>
+        extends BaseConverter<{{name}}Dto>
          implements Converter<String, {{name}}Dto> {
 
     public {{name}}Converter({{name}}sDbService dbService) {

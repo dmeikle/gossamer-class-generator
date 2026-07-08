@@ -71,7 +71,7 @@ public class Main {
         generate("dbservice.mustache", def, outputDir + "/data/" + name + "sDbService.java");
         generate("handler.mustache", def, outputDir + "/handlers/" + name + "sHandler.java");
         generate("controller.mustache", def, outputDir + "/adapters.inbound/" + name + "sController.java");
-        generate("converter.mustache", def, outputDir + "/converters/" + name + "sConverter.java");
+        generate("converter.mustache", def, outputDir + "/converters/" + name + "Converter.java");
         generate("migration.mustache", def, outputDir + "/migrations/V" + timestamp() + "__create_" + def.get("table") + ".sql");
     }
 

@@ -1,7 +1,7 @@
 package com.gossamercms.{{project}}.data;
 
-import com.gossamercms.{{project}}.dtos.AppointmentDto;
-import com.gossamercms.{{project}}.models.Appointment;
+import com.gossamercms.{{project}}.dtos.{{name}}Dto;
+import com.gossamercms.{{project}}.models.{{name}};
 import com.gossamercms.mvc.annotations.ModuleDbService;
 import com.gossamercms.mvc.data.BaseDbService;
 import com.gossamercms.mvc.data.DataSourceManager;
@@ -15,7 +15,7 @@ import java.util.UUID;
 @ModuleDbService
 public class {{name}}sDbService extends BaseDbService<{{name}}, {{name}}Dto> {
 
-    public {{name}}DbService(DataSourceManager ds) {
+    public {{name}}sDbService(DataSourceManager ds) {
         super({{name}}.class, {{name}}Dto.class, ds);
     }
 
@@ -37,5 +37,10 @@ public class {{name}}sDbService extends BaseDbService<{{name}}, {{name}}Dto> {
     @Override
     protected void throw404(String id) {
         throw new NotFoundException("{{name}} not found: " + id);
+    }
+
+     @Override
+    public ListResultset<{{name}}Dto> createOrReplaceBulk(UUID deletedBy, List<{{name}}Dto> dtos, Map<String, Object> deleteExistingKey) {
+        return null;
     }
 }
