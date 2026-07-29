@@ -36,11 +36,7 @@ public class {{name}}sDbService extends BaseDbService<{{name}}, {{name}}Dto> {
 
     @Override
     protected void throw404(String id) {
-        throw new NotFoundException("{{name}} not found: " + id);
+
     }
 
-     @Override
-    public ListResultset<{{name}}Dto> createOrReplaceBulk(UUID deletedBy, List<{{name}}Dto> dtos, Map<String, Object> deleteExistingKey) {
-        return null;
-    }
 }

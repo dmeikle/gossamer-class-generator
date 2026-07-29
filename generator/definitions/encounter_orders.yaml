@@ -1,0 +1,22 @@
+name: ProviderNoteTemplate
+
+table: provider_note_templates
+
+project: medical.clinical
+
+fields:
+  - name: providerId
+    type: UUID
+    required: true
+    reference: Provider
+
+  - name: templateId
+    type: UUID
+    required: true
+    reference: EncounterNoteTemplate
+
+  - name: isFavorite
+    type: Boolean
+    required: true
+    default: true
+    description: Indicates whether this template is one of the provider's favorites.

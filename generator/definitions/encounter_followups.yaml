@@ -1,0 +1,24 @@
+name: EncounterNoteTemplateUsage
+
+table: encounter_note_template_usage
+
+project: medical.clinical
+
+fields:
+  - name: id
+    type: UUID
+    required: true
+
+  - name: templateId
+    type: UUID
+    required: true
+    reference: EncounterNoteTemplate
+
+  - name: encounterNoteId
+    type: UUID
+    required: true
+    reference: EncounterNote
+
+  - name: createdAt
+    type: Timestamp
+    required: true

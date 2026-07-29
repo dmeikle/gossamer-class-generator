@@ -4,11 +4,15 @@ import com.gossamercms.{{project}}.models.{{name}};
 import com.gossamercms.mvc.data.DtoWithId;
 import lombok.Builder;
 import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class {{name}}Dto implements DtoWithId{
 {{#fields}}
     private {{javaType}} {{name}};

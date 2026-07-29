@@ -1,0 +1,16 @@
+name: EncounterNoteTemplateTag
+
+table: encounter_note_template_tags
+
+project: medical.clinical
+
+fields:
+  - name: templateId
+    type: UUID
+    required: true
+    reference: EncounterNoteTemplate
+
+  - name: tag
+    type: String(100)
+    required: true
+    description: Search tag associated with the template.

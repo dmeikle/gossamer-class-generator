@@ -4,13 +4,17 @@ import com.gossamercms.{{project}}.dtos.{{name}}Dto;
 import com.gossamercms.mvc.models.BaseModel;
 import com.gossamercms.mvc.models.ModelMeta;
 import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class {{name}} implements BaseModel{
 {{#fields}}
     private {{javaType}} {{name}};
