@@ -1,16 +1,34 @@
-name: EncounterNoteTemplateTag
+name: TaskProgramItem
 
-table: encounter_note_template_tags
+table: task_program_items
 
-project: medical.clinical
+project: medical.rehabilitation
 
 fields:
-  - name: templateId
+
+  - name: id
     type: UUID
     required: true
-    reference: EncounterNoteTemplate
 
-  - name: tag
-    type: String(100)
+
+  - name: taskId
+    type: UUID
     required: true
-    description: Search tag associated with the template.
+    reference: Task
+
+
+  - name: taskProgramId
+    type: UUID
+    required: true
+    reference: TaskProgram
+
+  - name: sortOrder
+    type: Integer
+    default: 0
+
+  - name: createdAt
+    type: Instant
+    required: true
+
+  - name: deletedAt
+    type: Instant
