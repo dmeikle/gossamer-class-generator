@@ -1,0 +1,35 @@
+
+name: NewsletterSubscriber
+
+table: newsletter_subscribers
+
+project: engagement.subscribers
+
+fields:
+
+  - name: id
+    type: UUID
+    required: true
+
+  - name: email
+    type: String
+    required: true
+    length: 255
+
+  - name: firstName
+    type: String
+    length: 100
+
+  - name: lastName
+    type: String
+    length: 100
+
+  - name: createdAt
+    type: Instant
+    required: true
+
+  - name: updatedAt
+    type: Instant
+
+  - name: deletedAt
+    type: Instant
