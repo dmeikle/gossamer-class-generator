@@ -80,6 +80,7 @@ public class Main {
         for (Map<String, Object> definition : orderDefinitionsByReferences(definitions)) {
             generateModule(definition, templateDir, outputDir, migrationTimestamp, migrationSequence++);
         }
+        generateAutoConfig(definitions.get(0), templateDir, outputDir);
     }
 
     private Map<String, Object> loadYaml(Path yamlFile) throws IOException {
@@ -91,6 +92,7 @@ public class Main {
 
     private void enrichDefinition(Map<String, Object> def, Map<String, String> tableByDefinition) {
         List<Map<String, Object>> fields = (List<Map<String, Object>>) def.get("fields");
+        def.put("routeTable", ((String) def.get("table")).replace('_', '-'));
 
         for (Map<String, Object> field : fields) {
             String rawType = (String) field.get("type");
@@ -183,6 +185,18 @@ public class Main {
             return snakeCase.substring(0, snakeCase.length() - 1) + "ies";
         }
         return snakeCase.endsWith("s") ? snakeCase : snakeCase + "s";
+    }
+
+    private void generateAutoConfig(Map<String, Object> definition, String templateDir, String outputDir) throws Exception {
+        String module = moduleName((String) definition.get("project"));
+        Map<String, Object> data = new HashMap<>(definition);
+        data.put("module", module);
+        generate("autoconfig.mustache", data, outputDir + "/config/" + module + "AutoConfig.java");
+    }
+
+    private String moduleName(String project) {
+        String module = project.substring(project.lastIndexOf('.') + 1);
+        return Character.toUpperCase(module.charAt(0)) + module.substring(1);
     }
 
     private void generateModule(
